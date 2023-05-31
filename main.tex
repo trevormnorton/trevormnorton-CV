@@ -22,6 +22,9 @@
 \input{glyphtounicode}
 
 
+\usepackage[backend=bibtex,defernumbers=true,maxbibnames=10]{biblatex}
+\addbibresource{papers.bib}
+
 %---------- FONT OPTIONS ----------
 % sans-serif
 % \usepackage[sfdefault]{FiraSans}
@@ -87,6 +90,13 @@
     \end{tabular*}\vspace{-7pt}
 }
 
+\newcommand{\resumeTeachingHeading}[4]{
+	 \vspace{-2pt}\item
+	\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		{#3} & \textit{\small #4} \\
+	\end{tabular*}\vspace{-7pt}
+}
 
 \newcommand{\resumeEducationHeading}[6]{
   \vspace{-2pt}\item
@@ -118,7 +128,7 @@
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}] \setlength\itemsep{1em}}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
@@ -132,19 +142,20 @@
 %---------- HEADING ----------
 
 \begin{center}
-    \textbf{\Huge \scshape Aras Güngöre} \\ \vspace{3pt}
+    \textbf{\Huge \scshape Trevor Norton} \\ \vspace{11pt}
     \small
-    \faMobile \hspace{.5pt} \href{tel:905314204536}{+90 531 420 4536}
+    \faMobile \hspace{.5pt} \href{tel:15403556329}{+1 (540) 355-6329}
     $|$
-    \faAt \hspace{.5pt} \href{mailto:arasgungore09@gmail.com}{arasgungore09@gmail.com}
+    \faAt \hspace{.5pt} \href{mailto:nortontm@bu.edu}{nortontm@bu.edu}
     $|$
-    \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/arasgungore}{LinkedIn}
+    \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/trevor-norton-phd/}{LinkedIn}
     $|$
-    \faGithub \hspace{.5pt} \href{https://github.com/arasgungore}{GitHub}
+    \faGithub \hspace{.5pt} \href{https://github.com/trevormnorton}{GitHub}
     $|$
-    \faGlobe \hspace{.5pt} \href{https://arasgungore.github.io}{Portfolio}
+    \faGlobe \hspace{.5pt} \href{https://trevormnorton.github.io/}{Personal Site}
     $|$
-    \faMapMarker \hspace{.5pt} \href{https://www.google.com/maps/place/Bogazici+University+North+Campus/@41.0863067,29.0441352,15z/data=!4m5!3m4!1s0x0:0x9d2497b07c8edb2f!8m2!3d41.0863067!4d29.0441352}{Istanbul, Turkey}
+    \faMapMarker \hspace{.5pt} %\href{https://www.google.com/maps/place/Bogazici+University+North+Campus/@41.0863067,29.0441352,15z/data=!4m5!3m4!1s0x0:0x9d2497b07c8edb2f!8m2!3d41.0863067!4d29.0441352}{Boston, MA}
+    {Boston, MA}
 \end{center}
 
 
@@ -155,21 +166,19 @@
   \vspace{3pt}
   \resumeSubHeadingListStart
     
-    \resumeEducationHeading
-      {Boğaziçi University
-      % \normalfont{(Admission rate: 0.09\%)}
-      }{Istanbul, Turkey}
-      {B.Sc. in Electrical and Electronics Engineering;   \textbf{GPA: 3.73/4.00}}{Sep 2018 \textbf{--} Jun 2023 (Expected)}
-      {Minor Degree in Computer Engineering;   \textbf{GPA: 3.89/4.00}}{Oct 2020 \textbf{--} Jun 2023 (Expected)}
+    \resumeSubheading
+      {Boston University}{Boston, Massachusetts}{Ph.D.  in Mathematics;   }{Sep 2018 \textbf{--} May 2023 }
         % \resumeItemListStart
             % \resumeItem{\textbf{Relevant coursework:} Calculus I-II, Matrix Theory, Differential Equations, Materials Science, Electrical Circuits I-II, Digital System Design, Numerical Methods, Probability Theory, Electronics I-II, Signals and Systems, Electromagnetic Field Theory, Energy Conversion, System Dynamics and Control, Communication Engineering}
         % \resumeItemListEnd
     
     \resumeSubheading
-      {Kocaeli Science High School
-      % \normalfont{(Admission rate: 0.85\%)}
-      }{Kocaeli, Turkey}
-      {High School Diploma;   \textbf{GPA: 97.03/100}}{Sep 2014 \textbf{--} Jun 2018}
+      {Virginia Polytechnic Institute and State University}{Blacksburg, Virginia}
+      {M.Sc. in Mathematics}{Aug 2016 \textbf{--} May 2018}
+     
+    \resumeSubheading
+    {Virginia Polytechnic Institute and State University}{Blacksburg, Virginia}
+    {B.Sc. in Mathematics, Minor in Computer Science}{Aug 2016 \textbf{--} May 2018}
     
   \resumeSubHeadingListEnd
 
@@ -181,28 +190,48 @@
   \vspace{3pt}
   \resumeSubHeadingListStart
   
-    \resumeSubheading
-      {Max Planck Institute for Intelligent Systems}{Stuttgart, Baden\textbf{-}Württemberg, Germany}
-      {Undergraduate Research Assistant}{Jun 2022 \textbf{--} Aug 2022}
-        \resumeItemListStart
-            \resumeItem{Worked in the Physical Intelligence Department with Sinan Özgün Demir and Alp Can Karacakol on a project about 3D printing and heat-assisted magnetic programming of soft machines.}
-            \resumeItem{Updated a ROS package for converting 3D motion controller events to ROS messages so that it synchronously operates at any given loop rate.}
-            \resumeItem{Implemented an Arduino Mega driver for controlling a fluid dispenser, a laser, thermocouples, and a coil set. Updated ROS nodes for parsing G-codes and controlling stage movement and built the ROS-Arduino communication network to simulate a 3D printing and magnetic programming process.}
-        \resumeItemListEnd
-    
-    \resumeSubheading
-      {Nanonetworking Research Group, Boğaziçi University}{Istanbul, Turkey}
-      {Undergraduate Research Assistant}{Oct 2021 \textbf{--} Present}
-        \resumeItemListStart
-            \resumeItem{Currently working with Assoc. Prof. Ali Emre Pusane on the project “Design and Implementation of Molecular Communication Systems Using Index Modulation” under the TÜBİTAK 2247-C Intern Researcher Scholarship Program (STAR).}
-            \resumeItem{Simulated the Brownian motion of molecules in a SISO MCvD system and predicted simulation parameters such as receiver radius, diffusion coefficient, and transmitter-receiver distance using CNNs with Python.}
-            \resumeItem{Plotted the arrival of molecules per symbol duration in a SISO MCvD system using Binomial, Poisson, and Gaussian model approximations with MATLAB.}
-            \resumeItem{Ran Monte Carlo simulations of the Gaussian model to encode/decode randomized binary sequences in a SISO MCvD system using BCSK modulation technique and calculated the bit error rate (BER) on Z-channel.}
-        \resumeItemListEnd
+     \resumeSubheading
+		 {Traveling Wave Solutions in the FPUT Lattice}{Boston, Massachusetts}
+		 {Boston University}{May 2019 \textbf{--} Present}
+			 \resumeItemListStart
+			 \resumeItem{Collaborated with Professor C. Eugene Wayne in studying front solutions and modulation equations for the Fermi-Pasta-Ulam-Tsingou (FPUT) lattice. This research was the basis of my thesis, and there is one paper in preparation.}
+			 \resumeItem{Expanded on previous to show that there is a kink-like solution to the FPUT that is approximated by the kink solution for the defocusing modified Korteweg-de Vries (mKdV) equation.}
+			 \resumeItem{Developed new methods for treating non-localized, traveling wave solution to the lattice to show that the mKdV serves for generally as a modulation equation for certain solutions to the FPUT.}
+			 \resumeItemListEnd
+			 
+	\resumeSubheading
+		{Analytic Solutions to the NPBE}{Boston, Massachusetts}
+		{Boston University}{Aug 2019 \textbf{--} Present}
+			\resumeItemListStart
+			\resumeItem{Collaborated with a group led by Professors Julio Castrill\'on-Cand\'as and Mark Kon in studying how PDE theory can be applied to problems of Uncertainty Quantification. This research led to one paper in preprint and one paper in preparation.}
+			\resumeItem{Collaborated on a paper in which an iteration argument is used to show existence of strong solutions to the nonlinear Poisson-Boltzmann equation (NPBE). This was used to show the analyticity of solutions with respect to stochastic parameters, and thus implies the sub-exponential convergence in error of a sparse grid computation.}
+			\resumeItem{Authored a paper in which new techniques are developed to show analyticity of solutions for nonlinear PDEs with interfaces. This result is used to show the analyticity of the solution of the NPBE with respect to stochastic parameters, and \emph{a priori} bounds are developed for the region of analyticity.}
+			\resumeItemListEnd
+	
+	\resumeSubheading
+      {Galerkin Approximations of DDEs with Multiple Delays}{Blacksburg, Virginia}
+      {Virgina Polytechnic Institute and State University}{Sep 2016 \textbf{--} May 2018}
+        	\resumeItemListStart
+            \resumeItem{Collaborated with Professor Honghu Liu on extending previous results for Galerkin approximations of delay differential equations (DDEs) to the case with multiple delay terms. This research was the basis of my Master's thesis}
+            \resumeItem{Generalized previous results to the case with multiple delay terms in the linear part of a delay differential equations.}
+            \resumeItem{Progressed research into multiple delay terms in the nonlinear part of the delay differential equation.}
+        	\resumeItemListEnd
     
   \resumeSubHeadingListEnd
 
 
+\setlength{\bibhang}{3pt}
+\defbibenvironment{bibliography}
+{\list
+	{}
+	{\setlength{\leftmargin}{\bibhang}%
+		\setlength{\itemindent}{-\leftmargin}%
+		\setlength{\itemsep}{\bibitemsep}%
+		\setlength{\parsep}{\bibparsep}}}
+{\endlist}
+{\item}
+\nocite{*}
+\printbibliography[env = bibliography, title=Publications and Preprints]
 
 %----------- WORK EXPERIENCE -----------
 
@@ -211,116 +240,86 @@
   \resumeSubHeadingListStart
     
     \resumeSubheading
-      {SESTEK Speech Enabled Software Technologies}{Istanbul, Turkey}
-      {Natural Language Processing R\&D Intern}{Jan 2022 \textbf{--} Feb 2022}
+      {Teaching Fellow/Research Fellow}{Boston, Massachusetts}
+      {Boston University}{Sep 2018 \textbf{--} May 2023}
         \resumeItemListStart
-            \resumeItem{Implemented common NLP tasks using transformers such as named-entity recognition (NER), part-of-speech (POS) tagging, sentiment analysis, text classification, and extractive/generative question answering.}
-            \resumeItem{Built a generative question answering system via Dense Passage Retrieval (DPR) and Retrieval-Augmented Generation (RAG) using the Haystack framework with Python.}
-            \resumeItem{Worked on a custom Turkish open-domain question answering system by fine-tuning a BERT base model transformer. Evaluated the exact match and F1 scores using different Turkish data sets and compared the evaluation results.}
+            \resumeItem{Collaborated with different groups in research on partial differential equations and dynamical systems.}
+            \resumeItem{Tutored students in one-on-one sessions for low-level Mathematics and Statistics classes at the University.}
+            \resumeItem{Taught four summer courses and led nine discussion sections in Mathematics  Statistics department and the Computer Science department.}
         \resumeItemListEnd
     
-    % \resumeSubheading
-      % {Ankara Metropolitan Municipality}{Ankara, Turkey}
-      % {SCADA Engineering Intern}{Aug 2021 \textbf{--} Sep 2021}
-        % \resumeItemListStart
-            % \resumeItem{Designed GSM/GPRS-based electrical control panels that are connected to local water pump automation systems. Pump station panels use digital output data received from the SCADA control center via RF transmission to control valves and pumps. Tank station panels are charged from the PV system and refill water tanks by signaling the pump station panel when the float switch is activated.}
-            % \resumeItem{Implemented motor control circuits by reading their PLC ladder diagrams and analyzed the EPLAN project documentation, HMI, and hardware components of an RTU panel.}
-        % \resumeItemListEnd
-
-    % \vspace{15pt}
     \resumeSubheading
-      {Meteksan Defense Industry Inc.}{Ankara, Turkey}
-      {Analog Design Engineering Intern}{Jul 2021 \textbf{--} Aug 2021}
-        \resumeItemListStart
-            \resumeItem{Designed numerous analog circuits such as voltage-mode controlled buck converter, phase-shifted full-bridge isolated DC-DC converter, and EMI filters with LTspice. Integrated these circuits and implemented a 320 W power distribution unit to be used in a radar system's power circuit board.}
-            \resumeItem{Researched real-world compatible electronic components to be used in such circuits including GaNFETs, high-side gate drivers, and Schottky diodes.}
-            \resumeItem{Assembled PCBs of both common and differential mode filters and used VNA Bode 100 to measure the cut-off frequencies.}
-        \resumeItemListEnd
+    {Teaching Assistant/Research Assistant}{Blacksburg, Virginia}
+    {Virginia Polytechnic Institute and State University}{Aug 2016 \textbf{--} May 2018}
+    \resumeItemListStart
+    \resumeItem{Tutored undergraduate students in freshman- and sophomore-level mathematics courses. }
+    \resumeItem{Led and assisted students in lab activities for classes at the University.}
+    \resumeItem{Collaborated with a professor on research in delay differential equations and Galerkin methods.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+	{Software  Engineer}{McLean, Virginia}
+	{Science Applications International Corporation}{Jul 2015 \textbf{--} Jul 2016}
+	\resumeItemListStart
+
+	
+	\resumeItem{Maintained and expanded the capabilities of a web application, which used the JavaServer Faces framework and an SQL database.} 
+	\resumeItem{Designed new features for the application in Java, using Hibernate to integrate with the database.}
+	\resumeItem{Responsible for software maintenance across the application, which required knowledge of the entire system.}
+	\resumeItemListEnd
     
   \resumeSubHeadingListEnd
 
 
 
-%----------- AWARDS & ACHIEVEMENTS -----------
-
-\section{Awards \& Achievements}
-  \vspace{2pt}
-  \resumeSubHeadingListStart
-    \small{\item{
-        \textbf{National University Admission Exam (YKS):}{ Ranked $75^{th}$ in Mathematics and Science among ca. 2.3 million candidates with a test score of 489.92/500.} \\ \vspace{3pt}
-        
-        \textbf{KYK Outstanding Success Scholarship:}{ Awarded to undergraduate students who have been ranked in the top 100 on National University Admission Exam by Higher Education Credit and Hostels Institution (KYK).} \\ \vspace{3pt}
-        
-        \textbf{Boğaziçi University Success Scholarship:}{ Awarded to undergraduate students who have been ranked in the top 100 on National University Admission Exam by Boğaziçi University.} \\ \vspace{3pt}
-        
-        \textbf{TÜBİTAK 2247-C Intern Researcher Scholarship:}{ Awarded to undergraduate students who take part in research projects carried out by the Scientific and Technological Research Council of Turkey (TÜBİTAK).} \\ \vspace{3pt}
-        
-        \textbf{Duolingo English Test (DET):}{ Overall Score: 135/160} \\ \vspace{3pt}
-        
-        % \textbf{Boğaziçi University English Proficiency Test (BUEPT):}{ Achieved the highest grade A on the BUEPT grading scheme with a total score in the range of 85-100.} \\ \vspace{3pt}
-        
-        \textbf{Kocaeli Science High School Salutatorian Award:}{ Graduated as the second-highest ranked student in my class.}
-    }}
-  \resumeSubHeadingListEnd
 
 
 
-%----------- PROJECTS -----------
 
-\section{Projects}
+%----------- Teaching -----------
+
+\section{Teaching}
     \vspace{3pt}
     \resumeSubHeadingListStart
-      
-      \resumeProjectHeading
-        {\textbf{Filters and Fractals} $|$ \emph{\href{https://github.com/arasgungore/filters-and-fractals}{\color{blue}GitHub}}}{}
-          \resumeItemListStart
-            \resumeItem{A C project which implements a variety of image processing operations that manipulate the size, filter, brightness, contrast, saturation, and other properties of PPM images from scratch.}
-            \resumeItem{Added recursive fractal generation functions to model popular fractals including Mandelbrot set, Julia set, Koch curve, Barnsley fern, and Sierpinski triangle in PPM format.}
-          \resumeItemListEnd
-      
-      \resumeProjectHeading
-        {\textbf{Chess Bot} $|$ \emph{\href{https://github.com/arasgungore/chess-bot}{\color{blue}GitHub}}}{}
-          \resumeItemListStart
-            \resumeItem{A C++ project in which you can play chess against an AI with a specified decision tree depth that uses alpha-beta pruning algorithm to predict the optimal move.}
-            \resumeItem{Aside from basic moves, this mini chess engine also implements chess rules such as castling, en passant, fifty-move rule, threefold repetition, and pawn promotion.}
-          \resumeItemListEnd
-      
-      \resumeProjectHeading
-        {\textbf{Rocket Flight Simulator} $|$ \emph{\href{https://github.com/arasgungore/rocket-flight-simulator}{\color{blue}GitHub}}}{}
-          \resumeItemListStart
-            \resumeItem{A Simulink project which can accurately simulate the motion of a flying rocket in one-dimensional space.}
-            \resumeItem{The project implements the forces acting on a rocket which are drag, weight, and thrust as subsystems that take time-variant parameters into consideration such as distance from the center of Earth, mass and velocity of the rocket, and air density at different layers of Earth's atmosphere.}
-          \resumeItemListEnd
-      
-      \resumeProjectHeading
-        {\textbf{Netlist Solver} $|$ \emph{\href{https://github.com/arasgungore/netlist-solver}{\color{blue}GitHub}}}{}
-          \resumeItemListStart
-            \resumeItem{A MATLAB project that uses modified nodal analysis (MNA) algorithm to calculate the node voltages of any analog circuit without dependent sources given in netlist format.}
-            \resumeItem{Added a module that sweeps the resistance of a load resistor, plots power dissipation as a function of load resistance, and finds the resistance value corresponding to maximum power.}
-          \resumeItemListEnd
-      
-      \resumeProjectHeading
-        {\textbf{CMPE 250 Projects} $|$ \emph{\href{https://github.com/arasgungore/CMPE250-projects}{\color{blue}GitHub}}}{}
-          \resumeItemListStart
-            \resumeItem{Five Java projects assigned for the Data Structures and Algorithms (CMPE 250) course in the Fall 2021-22 semester.}
-            \resumeItem{These projects apply DS\&A concepts such as discrete-event simulation (DES) using priority queues, Dijkstra's shortest path algorithm, Prim's algorithm to find the minimum spanning tree (MST), Dinic's algorithm for maximum flow problems, and weighted job scheduling with dynamic programming to real-world problems.}
-          \resumeItemListEnd
-      
-    \resumeSubHeadingListEnd
+		\resumeTeachingHeading{Basic Statistics and Probability}{Boston University}{Lab Coordinator}{Spring, 2023}
+		
+		\resumeTeachingHeading{Basic Statistics and Probability}{Boston University}{Teaching Assistant}{Fall, 2022}
+		
+		\resumeTeachingHeading{Calculus I}{Boston University}{Instructor}{Summer 2, 2022}
+		
+		\resumeTeachingHeading{Basic Statistics and Probability}{Boston University}{Teaching Assistant}{Spring, 2022}
+		
+		\resumeTeachingHeading{Multivariate Calculus}{Boston University}{Teaching Assistant}{Spring, 2021}
+		
+		\resumeTeachingHeading{Combinatoric Structures}{Boston University}{Teaching Assistant}{Fall, 2020}
+		
+		\resumeTeachingHeading{Discrete Mathematics}{Boston University}{Instructor}{Summer 2, 2020}
+		
+		\resumeTeachingHeading{Probability in Computing}{Boston University}{Teaching Assistant}{Spring, 2020}
+		
+		\resumeTeachingHeading{Probability in Computing}{Boston University}{Teaching Assistant}{Fall, 2019}
+		
+		\resumeTeachingHeading{Linear Algebra}{Boston University}{Instructor}{Summer 2, 2019}
+		
+		\resumeTeachingHeading{Linear Algebra}{Boston University}{Instructor}{Summer 1, 2019}
+		
+		\resumeTeachingHeading{Differential Equations}{Boston University}{Teaching Assistant}{Spring, 2019}
+		
+		\resumeTeachingHeading{Statistics I}{Boston University}{Instructor}{Fall, 2018}
 
-
+	\resumeSubHeadingListEnd
 
 %----------- SKILLS -----------
 
-\section{Skills}
+\section{Technical Skills}
   \vspace{2pt}
   \resumeSubHeadingListStart
     \small{\item{
-        \textbf{Programming:}{ C, C++, Java, Python, MATLAB, R, MySQL, VHDL} \\ \vspace{3pt}
+        \textbf{Programming:}{ Java, Python, MATLAB, and exposure to SQL, HTML, CSS } \\ \vspace{3pt}
         
-        \textbf{Technologies:}{ Git, Arduino, ROS, Simulink, LTspice, Xilinx ISE} \\ \vspace{3pt}
+        \textbf{Technologies:}{ Git/Github, and exposure to Tortoise SVN} \\ \vspace{3pt}
         
-        \textbf{Languages:}{ Turkish (Native), English (Professional), German (Elementary)}
+        \textbf{Libraries:}{ Numpy, Pandas, Scikit-learn, Seaborn, Tensorflow}
         
         % \textbf{Frameworks}{: X, X, X} \\
         % \textbf{Developer Tools}{: X, X, X} \\
@@ -337,13 +336,21 @@
   \vspace{2pt}
   \resumeSubHeadingListStart
     \small{\item{
-        \textbf{Major coursework:}{ Calculus I-II, Matrix Theory, Differential Equations, Materials Science, Electrical Circuits I-II, Digital System Design, Numerical Methods, Probability Theory, Electronics I-II, Signals and Systems, Electromagnetic Field Theory, Energy Conversion, System Dynamics and Control, Communication Engineering} \\ \vspace{3pt}
-        
-        \textbf{Minor coursework:}{ Discrete Computational Structures, Introduction to Object-Oriented Programming, Data Structures and Algorithms}
+        { Numerical Analysis, Probability, Statistical Methods of Bioinformatics, Data Structures, Algorithm Analysis} \\ \vspace{3pt}
     }}
   \resumeSubHeadingListEnd
 
+%----------- AWARDS & ACHIEVEMENTS -----------
 
+\section{Awards \& Achievements}
+\vspace{2pt}
+\resumeSubHeadingListStart
+\small{\item{
+		\textbf{Departmental Outstanding Teaching Fellow: }{Awarded to Teaching Fellows within the department for exemplary performance in teaching over an academic year (Spring 2023)} \\ \vspace{3pt}
+		
+		\textbf{Outstanding Applied Discrete Mathematics Senior: }{ Awarded to a graduating student in the Applied Discrete Mathematics track in recognition for academic achievement (Spring 2015)} \\ \vspace{3pt}
+}}
+\resumeSubHeadingListEnd
 
 %----------- CERTIFICATES -----------
 
